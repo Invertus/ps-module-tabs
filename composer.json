@@ -1,0 +1,22 @@
+{
+  "name": "invertus/psModuleTabs",
+  "config": {
+    "platform": {
+      "php": "5.6"
+    }
+  },
+  "autoload": {
+    "psr-4": {
+      "Invertus\\psModuleTabs\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Invertus",
+      "email": "developers@invertus.eu"
+    }
+  ],
+  "require": {
+    "php": ">=5.6"
+  }
+}
