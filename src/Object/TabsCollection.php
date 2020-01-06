@@ -17,6 +17,8 @@ class TabsCollection implements \Countable, \Iterator, \ArrayAccess
         foreach ($tabs as $tab) {
             if ($tab instanceof Tab) {
                 $this->offsetSet('', $tab);
+            } else {
+                throw new \InvalidArgumentException("Must be instanceof Tab");
             }
         }
     }
@@ -99,10 +101,6 @@ class TabsCollection implements \Countable, \Iterator, \ArrayAccess
      */
     public function offsetSet($offset, $tab)
     {
-        if (!is_array($tab)) {
-            throw new \InvalidArgumentException("Must be an array");
-        }
-
         if (empty($offset)) { //this happens when you do $collection[] = 1;
             $this->tabs[] = $tab;
         } else {
