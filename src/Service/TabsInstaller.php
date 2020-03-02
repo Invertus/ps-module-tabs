@@ -34,7 +34,7 @@ class TabsInstaller
                 return false;
             }
 
-            if (PsTab::getIdFromClassName($tab['class_name'])) {
+            if (PsTab::getIdFromClassName($tab->getClassName())) {
                 continue;
             }
 
