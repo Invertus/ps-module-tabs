@@ -15,6 +15,7 @@ class TabsInitializer
      * @var TabsCollection
      */
     private $tabs;
+    private $moduleName;
 
     /**
      * TabsInitializer constructor.
@@ -22,10 +23,11 @@ class TabsInitializer
      * @param $psVersion
      * @param TabsCollection $tabs
      */
-    public function __construct($psVersion, TabsCollection $tabs)
+    public function __construct($psVersion, TabsCollection $tabs, $moduleName = '')
     {
         $this->psVersion = $psVersion;
         $this->tabs = $tabs;
+        $this->moduleName = $moduleName;
     }
 
 //    TODO: need uninstall functionality
@@ -36,7 +38,7 @@ class TabsInitializer
     public function initializeTabsByPsVersion()
     {
         if ($this->isPSVersionLessThan174()) {
-            $tabsInstaller = new TabsInstaller($this->tabs);
+            $tabsInstaller = new TabsInstaller($this->tabs, $this->moduleName);
             if (!$tabsInstaller->installTabs()) {
                 return false;
             };
