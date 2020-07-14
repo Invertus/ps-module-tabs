@@ -55,6 +55,7 @@ class TabsInstaller
         $psTab->class_name = $tab->getClassName();
         $psTab->id_parent  = $idParent;
         $psTab->module     = $this->moduleName;
+        $psTab->active = $tab->isActive();
 
         foreach ($languages as $language) {
             $psTab->name[$language['id_lang']] = $tab->getName();
