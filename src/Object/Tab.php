@@ -18,11 +18,17 @@ class Tab
      */
     private $parentClassName;
 
-    public function __construct($name, $className, $parentClassName)
+    /**
+     * @var bool
+     */
+    private $isActive;
+
+    public function __construct($name, $className, $parentClassName, $isActive)
     {
         $this->name = $name;
         $this->className = $className;
         $this->parentClassName = $parentClassName;
+        $this->isActive = $isActive;
     }
 
     /**
@@ -48,4 +54,13 @@ class Tab
     {
         return $this->parentClassName;
     }
+
+    /**
+     * @return bool
+     */
+    public function isActive()
+    {
+        return $this->isActive;
+    }
+
 }
